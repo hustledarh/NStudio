@@ -10,5 +10,10 @@ $theme-colors: (
     src: local('Almeira'), url(./fonts/Almeira-vm20L.ttf) format("truetype");
   }
 
+@font-face {
+font-family: 'Muli';
+src: local('Muli'), url(./fonts/muli/Muli.ttf) format("truetype");
+}
+
 /* import bootstrap to set changes */
 @import "../node_modules/bootstrap/scss/bootstrap";
