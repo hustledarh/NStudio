@@ -1,16 +1,12 @@
 .message-1 {
-    font-size: large;
     text-align: center;
-    color: bg-secondary;
-    font-family: 'Almeira';
+    font-family: sans-serif;
 }
 
 .message-2 {
     margin-top: 80px;
-        font-size: large;
     text-align: center;
-    color: bg-secondary;
-    font-family: 'Almeira';
+    font-family: sans-serif;
 }
 
 .base {

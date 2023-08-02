@@ -5,5 +5,10 @@ $theme-colors: (
         "tertiary": #D89FAA
 );
 
+@font-face {
+    font-family: 'Almeira';
+    src: local('Almeira'), url(./fonts/Almeira-vm20L.ttf) format("truetype");
+  }
+
 /* import bootstrap to set changes */
 @import "../node_modules/bootstrap/scss/bootstrap";

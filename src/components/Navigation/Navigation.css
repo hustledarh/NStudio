@@ -1,5 +1,7 @@
 .link-text {
     font-size: 30px;
     font-weight: bold;
-    color: white;
+    color: black;
+    text-decoration: underline;
+    font-family: 'Almeira';
 }

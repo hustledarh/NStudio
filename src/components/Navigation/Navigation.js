@@ -7,7 +7,7 @@ import './Navigation.css';
 
 function NavScrollExample() {
   return (
-    <Navbar className="bg-primary mb-5" expand="lg">
+    <Navbar className=" mb-5" expand="lg">
       <Container fluid className=''>
         <Navbar.Brand href="/" className='ms-sm-5'>
         <img
