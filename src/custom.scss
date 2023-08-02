@@ -1,0 +1,9 @@
+/* make the customizations */
+$theme-colors: (
+        "primary": #C38D8D,
+        "secondary": #9A4D57,
+        "tertiary": #D89FAA
+);
+
+/* import bootstrap to set changes */
+@import "../node_modules/bootstrap/scss/bootstrap";

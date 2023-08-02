@@ -1,0 +1,19 @@
+.message-1 {
+    font-size: large;
+    text-align: center;
+    color: bg-secondary;
+    font-family: 'Almeira';
+}
+
+.message-2 {
+    margin-top: 80px;
+        font-size: large;
+    text-align: center;
+    color: bg-secondary;
+    font-family: 'Almeira';
+}
+
+.base {
+    padding-left: 100px;
+    padding-right: 100px;
+}

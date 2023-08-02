@@ -1,0 +1,11 @@
+.carousle-images {
+    width: 600px;
+    height: 600px;
+    display: inline;
+    text-align: center;
+}
+
+.carousle-item{
+    background-color: white;
+    text-align: center;
+}
