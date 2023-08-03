@@ -10,7 +10,7 @@ import GridExample from "../components/CardGrid/CardGrid";
 function Home(){
 return(
     <Container>
-        <Row >
+        <Row xs={1} md={2} lg={2} >
         <Col >
         <CarouselItem/> 
         </Col>
