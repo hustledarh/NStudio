@@ -2,7 +2,7 @@ import React from "react"
 import { Container,Row,Col, Stack} from "react-bootstrap"
 import { useState } from "react";
 import CarouselItem from "../components/Carousel/Carousel";
-import './Home.css';
+import './Home.scss';
 import '../fonts/Almeira-vm20L.ttf';
 import GridExample from "../components/CardGrid/CardGrid";
 
