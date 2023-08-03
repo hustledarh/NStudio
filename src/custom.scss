@@ -15,5 +15,10 @@ font-family: 'Muli';
 src: local('Muli'), url(./fonts/muli/Muli.ttf) format("truetype");
 }
 
+@font-face {
+font-family: 'Sandbox';
+    src: local('Sandbox'), url(./fonts/FontsFree-Net-SANDBOX_TTF.ttf) format("truetype");
+    }
+
 /* import bootstrap to set changes */
 @import "../node_modules/bootstrap/scss/bootstrap";

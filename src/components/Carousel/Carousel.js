@@ -7,7 +7,7 @@ function CarouselItem() {
       <Carousel.Item className='carousle-item'>
         <img
           className="carousle-images"
-          src="1.png"
+          src="jaane-2-ya-jaane-na.jpg"
           alt="First slide"
         
         />
@@ -15,14 +15,14 @@ function CarouselItem() {
       <Carousel.Item className='carousle-item'>
         <img
           className="carousle-images"
-          src="2.png"
+          src="2.jpg"
           alt="Second slide"
         />
       </Carousel.Item>
       <Carousel.Item className='carousle-item'>
         <img
           className="carousle-images m-n5"
-          src="3.png"
+          src="jaane-2-ya-jaane-na.jpg"
           alt="Third slide"
         />
       </Carousel.Item>

@@ -11,7 +11,7 @@ function NavScrollExample() {
       <Container fluid className=''>
         <Navbar.Brand href="/" className='ms-sm-5'>
         <img
-              src="IMG_1416.png"
+              src="IMG_1416.jpg"
               width="200"
               height="150"
               className="d-inline-block align-top"
