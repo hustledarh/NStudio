@@ -1,12 +1,9 @@
 .message-1 {
     text-align: center;
     font-family: Muli;
+    font-size: 2vw;
 }
 
-.message-2 {
-    text-align: center;
-    font-family: Muli;
-}
 
 .base {
     padding-left: 100px;
