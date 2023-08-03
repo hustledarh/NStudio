@@ -7,9 +7,9 @@ import './Navigation.css';
 
 function NavScrollExample() {
   return (
-    <Navbar className=" mb-5" expand="lg">
+    <Navbar  expand="lg">
       <Container fluid className='d-flex flex-column'>
-        <Navbar.Brand href="/" className='ms-sm-5'>
+        <Navbar.Brand href="/" >
         <img
               src="IMG_1416.jpg"
               width="200"
@@ -20,7 +20,7 @@ function NavScrollExample() {
             </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className='mt-auto' >
-          <Nav className='mx-auto' >
+          <Nav>
             <Nav.Link as={Link} className='link-text' to="/">Home</Nav.Link>
             <Nav.Link as={Link} className='link-text' to="/">Products</Nav.Link>
             <Nav.Link as={Link} className='link-text' to="/">Services</Nav.Link>
