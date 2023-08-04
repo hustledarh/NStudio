@@ -15,7 +15,7 @@ function CarouselItem() {
       <Carousel.Item className='carousle-item'>
         <img
           className="carousle-images"
-          src="2.jpg"
+          src="jaane-2-ya-jaane-na.jpg"
           alt="Second slide"
         />
       </Carousel.Item>
