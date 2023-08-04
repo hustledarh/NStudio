@@ -11,7 +11,7 @@ return(
     <Container>
         <Row xs={1} md={1} lg={1} >
         <Col>
-        <CarouselItem/> 
+        <CarouselItem /> 
         </Col>
         {/* <Col className="p-3 w-80 border border-5 d-flex flex-column justify-content-around">
         <p className="message-1">Want to a perfect gift for an occassion or impress your wife, family, friend or a collegue with a perfect gift ? </p>
