@@ -9,8 +9,6 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div 
-      style={{backgroundImage: `url(bg-image.jpg)`}}>
     <Container className="shadow-lg bg-white main-container">
       <NavigationBar/>
       <hr class="hr mb-5 mt-0" />
@@ -19,7 +17,6 @@ function App() {
         <Route exact path="/" element={<Home />} />
       </Routes>
     </Container>
-    </div>
   );
 }
 

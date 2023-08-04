@@ -19,7 +19,7 @@ return(
         <p className="message-1"><b>Studio N </b> brings meticullously curated designs to lit your special moments.</p>
         </Col> */}
         </Row>
-        <h1 className="pt-5">Products</h1>
+        <h1 className="pt-5 text-center">Products</h1>
         <hr class="hr" />
         <GridExample/>
     </Container>
