@@ -1,7 +1,6 @@
 import { Container } from "react-bootstrap";
 import NavigationBar from "./components/Navigation/Navigation";
 import Home from "./pages/Home";
-import "./App.css"
 import JsonFormatter from "./pages/JsonFormatter";
 import React from "react";
 import { Routes, Route } from "react-router-dom";

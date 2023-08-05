@@ -7,10 +7,6 @@
   pointer-events: none;
 }
 
-.main-container{
-  opacity: 98%;
-}
-
 .App-col{
 border-style: solid;
 border-color: black;

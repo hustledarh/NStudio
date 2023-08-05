@@ -15,11 +15,11 @@ function GridExample() {
             <Card.Img variant="top" src={img} />
             <Card.Body>
               <Card.Title>{img.replace(".jpeg","")}</Card.Title>
-              <Card.Text>
+              {/* <Card.Text>
                 This is a longer card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
                 longer.
-              </Card.Text>
+              </Card.Text> */}
             </Card.Body>
           </Card>
         </Col>
