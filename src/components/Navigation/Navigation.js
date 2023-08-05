@@ -8,15 +8,6 @@ function NavScrollExample() {
   return (
     <Navbar  expand="lg" className='pb-0'>
       <Container fluid className='d-flex flex-column'>
-        <Navbar.Brand href="/" >
-        <img
-              src="IMG_1416.jpg"
-              width="150"
-              height="80"
-              className="d-inline-block"
-              alt="React Bootstrap logo"
-            />
-            </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className='mt-auto' >
           <Nav>
