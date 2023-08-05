@@ -10,7 +10,7 @@ function NavScrollExample() {
     <Navbar  expand="lg" className='pb-0'>
       <Container fluid className='pe-5 d-flex flex-row border'>
         <Navbar.Toggle />
-        <img src='mainLogo.PNG' width={100}></img>
+        <img src='mainLogo.PNG' width={120}></img>
         <Navbar.Collapse  >
           <Nav className='mx-auto'>
             <Nav.Link as={Link} className='mx-3' to="/">Home</Nav.Link>
