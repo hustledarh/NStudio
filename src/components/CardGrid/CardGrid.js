@@ -5,8 +5,6 @@ import Row from 'react-bootstrap/Row';
 
 
 
-
-
 function GridExample(props) {
   console.log(props)
   const items = props.items
