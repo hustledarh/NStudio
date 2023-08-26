@@ -19,11 +19,15 @@ function NavScrollExample() {
             <Nav.Link as={Link} className='mx-3' to="/about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <div className=' p-0 m-0'>
-          <p className='text-center p-0 m-0'>Orders @</p>
+        <div className=' p-0 m-0 align-items-center'>
+          <p className='text-center p-0 m-0'>For orders</p>
           <div className='d-flex align-items-center m-0' >
           <img src='whatsapp.png' width={20} height={20}/>
             <p className='ms-2 mb-0'>7057410143</p>
+          </div>
+          <div className='d-flex align-items-center m-0' >
+          <img src='whatsapp.png' width={20} height={20}/>
+            <p className='ms-2 mb-0'>studio.n.circle@gmail.com</p>
           </div>
         </div>
       </Container>
