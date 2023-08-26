@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
+import "./Footer.css"
 
 function Footer(){
     return(
-       <Container  fluid={true}  className="bg-secondary fixed-bottom">
-       <p> </p>
+       <Container className="footer mt-5">
+       <p>Contact 7998348343</p>
        </Container>
     )
 }

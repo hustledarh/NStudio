@@ -5,9 +5,10 @@ import Row from 'react-bootstrap/Row';
 
 
 
-function GridExample() {
-  const items = ['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg', 'black-red-believe.jpeg', 'cream-yellow-colage.jpeg', 'white-black-shayari.jpeg', 'black-red-collage.jpeg']
-  return (
+function GridExample(props) {
+  console.log(props)
+  const items = props.items
+    return (
     <Row xs={1} md={3} lg={4} className="g-4">
       {Array.from(items).map((img, idx) => (
         <Col key={idx}>

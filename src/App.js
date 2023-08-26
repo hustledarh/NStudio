@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import JsonFormatter from "./pages/JsonFormatter";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer/Footer"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/jsonformatter" element={<JsonFormatter />} />
         <Route exact path="/" element={<Home />} />
       </Routes>
+      <Footer/>
     </Container>
   );
 }

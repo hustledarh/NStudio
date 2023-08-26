@@ -19,9 +19,12 @@ return(
         <p className="message-1"><b>Studio N </b> brings meticullously curated designs to lit your special moments.</p>
         </Col> */}
         </Row>
-        <h1 className="pt-5 text-center">Products</h1>
+        <h1 className="pt-5 text-center">Our Products</h1>
         <hr class="hr" />
-        <GridExample/>
+        <GridExample items={['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg', 'black-red-believe.jpeg', 'cream-yellow-colage.jpeg', 'white-black-shayari.jpeg', 'black-red-collage.jpeg']}/>
+        <h1 className="pt-5 text-center">New Arrivals</h1>
+        <hr class="hr" />
+        <GridExample items={['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg']}/>
     </Container>
 )
 }
