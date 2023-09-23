@@ -31,6 +31,11 @@ function NavScrollExample() {
             <img src='whatsapp.png'></img>
           </a>
           </Col>
+          <Col>
+          <a href="https://mail.google.com/mail/u/0/?subject=ORDER&view=cm&fs=1&tf=1&to=studio.n.circle@gmail.com&body=Hi%20N_Studio%2C%0A%0AI%20really%20linked%20your%20product%20and%20wanted%20to%20get%20something%20customised%20for%20myself%0A%0Acontact%20%3A%20" target="_blank" rel="noopener noreferrer">
+          <img src='gmail.png'></img>
+          </a>
+          </Col>
         </Row>
   
       </Container>
