@@ -25,14 +25,6 @@ return(
         <h2 className="pt-5 text-center">New Arrivals</h2>
         <hr class="hr" />
         <GridExample items={['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg']}/>
-        <h2 className="pt-5 text-center">“About us, who we are, and what we do.”</h2>
-        <hr class="hr" />
-        <Row  className="justify-content-center">
-            <Col>
-            <p className="text-center about"> Studio N, is our little online store with customised products, with all the love and care! 
-This online store is run by two very nice humans who look forward to great conversations & having coffee. Please do contact us if you have any queries and follow us on Instagram. </p>
-            </Col>
-        </Row>
     </Container>
 )
 }

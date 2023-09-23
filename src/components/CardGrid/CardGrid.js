@@ -12,7 +12,7 @@ function GridExample(props) {
     <Row xs={1} md={3} lg={4} className="g-4">
       {Array.from(items).map((img, idx) => (
         <Col key={idx}>
-          <Card>
+          <Card className='border-4'>
             <Card.Img variant="top" src={img} />
             <Card.Body>
               <Card.Title>{img.replace(".jpeg","")}</Card.Title>
