@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Navigation.css';
 import { Col,Row} from 'react-bootstrap';
 
@@ -13,10 +13,10 @@ function NavScrollExample() {
         <img src='mainLogo.PNG' width={120}></img>
         <Navbar.Collapse  >
           <Nav className='mx-auto'>
-            <Nav.Link as={Link} className='mx-3' to="/">Home</Nav.Link>
-            <Nav.Link as={Link} className='mx-3' to="/">Products</Nav.Link>
-            <Nav.Link as={Link} className='mx-3' to="/">Services</Nav.Link>
-            <Nav.Link as={Link} className='mx-3' to="/about">About</Nav.Link>
+            <Nav.Link as={HashLink} className='mx-3' to="/">Home</Nav.Link>
+            <Nav.Link as={HashLink} className='mx-3' to="#products">Products</Nav.Link>
+            <Nav.Link as={HashLink} className='mx-3' to="#new_arrivals">New Arrivals</Nav.Link>
+            <Nav.Link as={HashLink} className='mx-3' to="/about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Row>
