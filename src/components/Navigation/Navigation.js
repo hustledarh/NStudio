@@ -16,7 +16,7 @@ function NavScrollExample() {
             <Nav.Link as={HashLink} className='mx-3' to="/">Home</Nav.Link>
             <Nav.Link as={HashLink} className='mx-3' to="#products">Products</Nav.Link>
             <Nav.Link as={HashLink} className='mx-3' to="#new_arrivals">New Arrivals</Nav.Link>
-            <Nav.Link as={HashLink} className='mx-3' to="/about">About</Nav.Link>
+            <Nav.Link as={HashLink} className='mx-3' to="#about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Row>
