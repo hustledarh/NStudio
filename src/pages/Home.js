@@ -21,10 +21,10 @@ return(
         </Row>
         <h2 className="pt-5 text-center" id="products">Our Products</h2>
         <hr class="hr" />
-        <GridExample items={['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg', 'black-red-believe.jpeg', 'cream-yellow-colage.jpeg', 'white-black-shayari.jpeg', 'black-red-collage.jpeg']}/>
+        <GridExample items={['TravelCollage.jpeg','FamilyCollage.jpeg', 'BabyCollage.jpeg']}/>
         <h2 className="pt-5 text-center" id="new_arrivals">New Arrivals</h2>
         <hr class="hr" />
-        <GridExample items={['black-white-tujse.jpeg', 'black-cream-quote.jpeg', 'brown-frame.jpeg']}/>
+        <GridExample items={['SpotifyEnglishLyrics.jpeg', 'SpotifyHindiLyrics.jpeg']}/>
     </Container>
 )
 }
