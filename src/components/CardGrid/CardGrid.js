@@ -9,7 +9,7 @@ function GridExample(props) {
   console.log(props)
   const items = props.items
     return (
-    <Row xs={1} md={3} lg={4} className="g-4">
+    <Row xs={1} md={3} lg={3} className="g-4 justify-content-center">
       {Array.from(items).map((img, idx) => (
         <Col key={idx}>
           <Card className='border-4'>
