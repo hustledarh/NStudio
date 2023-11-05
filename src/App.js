@@ -5,7 +5,8 @@ import JsonFormatter from "./pages/JsonFormatter";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer"
-import PDP from "./pages/PDP";
+import PDP from "./pages/pdp";
+import PLP from "./pages/plp";
 
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
         <Route 
         path="/:product_category/:product_name/:product_id" 
         element={<PDP/>}
+        />
+        <Route 
+        path="/:product_category" 
+        element={<PLP/>}
         />
       </Routes>
       <Footer/>
