@@ -1,23 +1,23 @@
 var products = [
     {
         "id": 1,
-        "name": "black-red-believe",
+        "name": "Spotify English Lyrics",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
         "category": "bakwas",
         "tags": ["old"],
-        "images": ["black-red-believe.jpeg", "black-red-believe.jpeg", "black-red-believe.jpeg", "black-red-believe.jpeg", "black-red-believe.jpeg"]
+        "images": ["SpotifyEnglishLyrics.jpeg","SpotifyEnglishLyrics.jpeg","SpotifyEnglishLyrics.jpeg","SpotifyEnglishLyrics.jpeg"]
     },
     {
         "id": 2,
-        "name": "black-red-collage",
+        "name": "Spotify Hindi Lyrics",
         "description": "Collage with beautiful Black Red Frame",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["free me lejao", "kal free milega"],
         "category": "bakwas",
         "tags": ["new"],
-        "images": ["black-red-collage.jpeg", "black-red-collage.jpeg", "black-red-collage.jpeg", "black-red-collage.jpeg", "black-red-collage.jpeg"]
+        "images": ["SpotifyHindiLyrics.jpeg","SpotifyHindiLyrics.jpeg","SpotifyHindiLyrics.jpeg","SpotifyHindiLyrics.jpeg"]
     },
     {
         "id": 3,
@@ -31,43 +31,23 @@ var products = [
     },
     {
         "id": 4,
-        "name": "black-white-tujse",
+        "name": "TravelCollage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
         "category": "bakwas",
         "tags": ["old"],
-        "images": ["black-white-tujse.jpeg", "black-white-tujse.jpeg", "black-white-tujse.jpeg", "black-white-tujse.jpeg", "black-white-tujse.jpeg"]
+        "images": ["TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg"]
     },
     {
         "id": 5,
-        "name": "brown-frame",
+        "name": "FamilyCollage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
         "category": "bakwas",
         "tags": ["new"],
-        "images": ["brown-frame.jpeg", "brown-frame.jpeg", "brown-frame.jpeg"]
-    },
-    {
-        "id": 6,
-        "name": "cream-black",
-        "description": "Black Red Frame, with beautiful",
-        "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
-        "offers": ["1 rs mein le jao", "kal free milega"],
-        "category": "bakwas",
-        "tags": ["new"],
-        "images": ["cream-black.jpeg", "cream-black.jpeg", "cream-black.jpeg", "cream-black.jpeg", "cream-black.jpeg"]
-    },
-    {
-        "id": 6,
-        "name": "cream-frame",
-        "description": "Black Red Frame, with beautiful",
-        "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
-        "offers": ["1 rs mein le jao", "kal free milega"],
-        "category": "bakwas",
-        "tags": ["new"],
-        "images": ["cream-frame.jpeg", "cream-frame.jpeg", "cream-frame.jpeg", "cream-frame.jpeg", "cream-frame.jpeg"]
+        "images": ["FamilyCollage.jpeg", "FamilyCollage.jpeg", "FamilyCollage.jpeg"]
     }
 ]
 

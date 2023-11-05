@@ -14,10 +14,10 @@ function GridExample(props) {
     <Row xs={width-3} md={width-2} lg={width} className="g-4 justify-content-center">
       {items.map((product, idx) => (
         <Col key={idx}>
-          <Link to={`${product.category}/${product.name}/${product.id}`}>
+          <Link to={`${product.category}/${product.name}/${product.id}`} className="no-underline">
             <Card >
               <Card.Img src={product.images[0]} />
-              <Card.Title className='text-center'>{product.name}</Card.Title>
+              <Card.Title className='text-center no-underline'>{product.name}</Card.Title>
             </Card>
           </Link>
         </Col>
