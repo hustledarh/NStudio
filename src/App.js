@@ -5,6 +5,7 @@ import JsonFormatter from "./pages/JsonFormatter";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer"
+import PDP from "./pages/PDP";
 
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
       <Routes>
         <Route exact path="/jsonformatter" element={<JsonFormatter />} />
         <Route exact path="/" element={<Home />} />
+        <Route 
+        path="/:product_category/:product_name/:product_id" 
+        element={<PDP/>}
+        />
       </Routes>
       <Footer/>
     </Container>

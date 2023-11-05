@@ -4,6 +4,7 @@ import CarouselItem from "../components/Carousel/Carousel";
 import './Home.scss';
 import '../fonts/Almeira-vm20L.ttf';
 import GridExample from "../components/CardGrid/CardGrid";
+import products from "../products";
 
 
 function Home(){
@@ -13,18 +14,13 @@ return(
         <Col>
         <CarouselItem /> 
         </Col>
-        {/* <Col className="p-3 w-80 border border-5 d-flex flex-column justify-content-around">
-        <p className="message-1">Want to a perfect gift for an occassion or impress your wife, family, friend or a collegue with a perfect gift ? </p>
-        <p className="message-1"> We are here to help !!</p>
-        <p className="message-1"><b>Studio N </b> brings meticullously curated designs to lit your special moments.</p>
-        </Col> */}
         </Row>
-        <h2 className="pt-5 text-center" id="products">Our Products</h2>
-        <hr class="hr" />
-        <GridExample items={['TravelCollage.jpeg','FamilyCollage.jpeg', 'BabyCollage.jpeg']}/>
         <h2 className="pt-5 text-center" id="new_arrivals">New Arrivals</h2>
         <hr class="hr" />
-        <GridExample items={['SpotifyEnglishLyrics.jpeg', 'SpotifyHindiLyrics.jpeg']}/>
+        <GridExample items={products.filter((products)=>{return products.tags.includes("new")})} width={4}/>
+        <h2 className="pt-5 text-center" id="products">Our Products</h2>
+        <hr class="hr" />
+        <GridExample items={products} width={4}/>
     </Container>
 )
 }
