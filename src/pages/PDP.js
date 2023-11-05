@@ -9,6 +9,9 @@ import products from "../products";
 import { Card } from "react-bootstrap";
 
 
+const _ = require('lodash');
+
+
 function PDP(props){
     const { product_id } = useParams();
     console.log(`product_id ${product_id}`)
@@ -27,7 +30,7 @@ return(
         </Row>
         </Col>
         <Col className="" >
-            <h3>{product.name}</h3>
+            <h3>{_.startCase(product.name)}</h3>
             <p className="product-product">{product.description}</p>
             <hr class="hr" />
             <h5>Customisation Options</h5>
