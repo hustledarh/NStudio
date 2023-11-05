@@ -3,6 +3,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 
+const _ = require('lodash');
+
 
 
 
@@ -24,7 +26,7 @@ function ProductGrid(props) {
           <Link to={to} className="no-underline">
             <Card >
               <Card.Img src={product.images[0]} />
-              <Card.Title className='text-center no-underline'>{product_name}</Card.Title>
+              <Card.Title className='text-center no-underline'>{_.startCase(product_name)}</Card.Title>
             </Card>
           </Link>
         </Col>

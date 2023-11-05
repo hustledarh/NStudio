@@ -21,7 +21,7 @@ var products = [
     },
     {
         "id": 3,
-        "name": "BabyCollage",
+        "name": "Baby Collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
@@ -31,7 +31,7 @@ var products = [
     },
     {
         "id": 4,
-        "name": "TravelCollage",
+        "name": "Travel Collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
@@ -41,7 +41,7 @@ var products = [
     },
     {
         "id": 5,
-        "name": "FamilyCollage",
+        "name": "Family Collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
@@ -50,8 +50,8 @@ var products = [
         "images": ["FamilyCollage.jpeg", "FamilyCollage.jpeg", "FamilyCollage.jpeg"]
     },
     {
-        "id": 3,
-        "name": "BabyCollage",
+        "id": 6,
+        "name": "Baby Collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
@@ -60,8 +60,8 @@ var products = [
         "images": ["BabyCollage.jpeg", "BabyCollage.jpeg", "BabyCollage.jpeg", "BabyCollage.jpeg", "BabyCollage.jpeg"]
     },
     {
-        "id": 4,
-        "name": "TravelCollage",
+        "id": 7,
+        "name": "Travel Collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
@@ -70,8 +70,8 @@ var products = [
         "images": ["TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg", "TravelCollage.jpeg"]
     },
     {
-        "id": 5,
-        "name": "FamilyCollage",
+        "id": 8,
+        "name": "family collage",
         "description": "Black Red Frame, with beautiful",
         "customizations": ["kuch bhi kardenge aap bolo bus", "sone ka frame available hai"],
         "offers": ["1 rs mein le jao", "kal free milega"],
