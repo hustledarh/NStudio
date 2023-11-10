@@ -21,10 +21,10 @@ function PDP(props){
 return(
     <Container>
         <Row xs={1} md={2}>
-            <Col>
+            <Col className="pb-2">
                 <Row  md={2}> 
                     {product.images.map((image) => (
-                        <Card className="d-none d-lg-block border" >
+                        <Card className="d-none d-lg-block" >
                             <Card.Img src={image} />
                         </Card>
                     ))}
@@ -39,8 +39,8 @@ return(
                     ))}
                 </Carousel>
             </Col>
-            <Col className="" >
-                <h3>{_.startCase(product.name)}</h3>
+            <Col className="pt-2" >
+                <h3 className="pt-2">{_.startCase(product.name)}</h3>
                 <p className="product-product">{product.description}</p>
                 <hr class="hr" />
                 <h5>Customisation Options</h5>
