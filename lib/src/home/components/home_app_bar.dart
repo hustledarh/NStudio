@@ -1,74 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
-import 'package:nstudio/src/design/studio_colors.dart';
-
-enum AppSectionType {
-  home,
-  aboutUs,
-  shop,
-  contact,
-}
+import 'package:nstudio/src/design/constants/studio_size.dart';
+import 'package:nstudio/src/design/constants/studio_colors.dart';
+import 'package:nstudio/src/home/data/models/home_section_type.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final AppSectionType selectedSection;
+  final HomeSectionType selectedSection;
+  final void Function(HomeSectionType) onSectionSelected;
 
   const HomeAppBar({
     super.key,
     required this.selectedSection,
+    required this.onSectionSelected,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      leadingWidth: 200,
-      backgroundColor: Colors.white,
-      surfaceTintColor: Colors.white,
-      leading: Image.asset(
-        StudioImages.studioLogo,
-        fit: BoxFit.fitHeight,
-      ),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return SizedBox(
+      height: StudioSize.homeAppbarHeight,
+      child: Row(
         children: [
+          Image.asset(
+            StudioImages.studioLogo,
+            fit: BoxFit.fitHeight,
+          ),
+          Spacer(),
           _AppBarButton(
             text: "Home",
-            isSelected: selectedSection == AppSectionType.home,
+            isSelected: selectedSection == HomeSectionType.home,
             onPressed: () {
-              // TODO
+              onSectionSelected(HomeSectionType.home);
             },
           ),
           _AppBarButton(
             text: "About Us",
-            isSelected: selectedSection == AppSectionType.aboutUs,
+            isSelected: selectedSection == HomeSectionType.aboutUs,
             onPressed: () {
-              // TODO
+              onSectionSelected(HomeSectionType.aboutUs);
             },
           ),
           _AppBarButton(
             text: "Shop",
-            isSelected: selectedSection == AppSectionType.shop,
+            isSelected: selectedSection == HomeSectionType.shop,
             onPressed: () {
-              // TODO
+              onSectionSelected(HomeSectionType.shop);
             },
           ),
           _AppBarButton(
             text: "Contact",
-            isSelected: selectedSection == AppSectionType.contact,
+            isSelected: selectedSection == HomeSectionType.contact,
             onPressed: () {
-              // TODO
+              onSectionSelected(HomeSectionType.contact);
             },
+          ),
+          ResponsiveVisibility(
+            visible: false,
+            visibleConditions: [
+              Condition.largerThan(name: TABLET),
+            ],
+            child: Spacer(
+              flex: 1,
+            ),
           ),
         ],
       ),
-      actions: [
-        SizedBox(width: 200),
-      ],
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(56);
+  Size get preferredSize => Size.fromHeight(StudioSize.homeAppbarHeight);
 }
 
 class _AppBarButton extends StatelessWidget {
@@ -88,9 +89,17 @@ class _AppBarButton extends StatelessWidget {
       onPressed: onPressed,
       style: TextButton.styleFrom(
         overlayColor: StudioColors.primaryGreen,
-        foregroundColor: isSelected ? StudioColors.primaryGreen : Colors.black,
+        foregroundColor: isSelected
+            ? StudioColors.homeAppbarTextSelected
+            : StudioColors.homeAppbarTextPrimary,
       ),
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }

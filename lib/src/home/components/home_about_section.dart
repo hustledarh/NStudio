@@ -1,82 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
-import 'package:nstudio/src/design/studio_colors.dart';
-import 'package:nstudio/src/design/utils/device_utils.dart';
+import 'package:nstudio/src/design/constants/studio_size.dart';
+import 'package:nstudio/src/design/constants/studio_colors.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeAboutSection extends StatelessWidget {
   const HomeAboutSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final sectionHeight = MediaQuery.sizeOf(context).height * 0.92;
-    final sectionWidth = MediaQuery.sizeOf(context).width;
-
-    // TODO Fix Mobile View
-    final crossAxisCount = (DeviceUtils.isDesktop(context)
-            ? (sectionWidth / (sectionWidth / 2))
-            : 1)
-        .floor();
-
     return Container(
-      height: sectionHeight,
-      color: StudioColors.greyLight,
+      color: StudioColors.bgHomeAboutSection,
       padding: EdgeInsets.symmetric(
-        vertical: 24,
-        horizontal: 48,
+        vertical: StudioSize.homeSectionTopPadding,
+        horizontal: StudioSize.homeSectionHorizontalPadding,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "ABOUT US",
+            "About Us",
             style: TextStyle(
-              fontSize: 36,
+              fontSize: StudioSize.homeHeaderTextSize,
               fontWeight: FontWeight.bold,
+              color: StudioColors.textHomeAboutHeader,
             ),
           ),
-          GridView.builder(
-            itemCount: 2,
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
-              mainAxisSpacing: 48,
-              crossAxisSpacing: 48,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return index == 0
-                  ? Center(
-                      child: Image.asset(
-                        StudioImages.spotifyEnglishLyrics,
-                        fit: BoxFit.cover,
+          SizedBox(
+            height: StudioSize.homePaddingAfterHeader,
+          ),
+          ResponsiveRowColumn(
+              layout: ResponsiveBreakpoints.of(context).smallerThan(TABLET)
+                  ? ResponsiveRowColumnType.COLUMN
+                  : ResponsiveRowColumnType.ROW,
+              columnSpacing: 24,
+              rowSpacing: 24,
+              children: [
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: ClipRRect(
+                    borderRadius:
+                        BorderRadius.circular(StudioSize.imageBorderRadius),
+                    child: Image.asset(
+                      StudioImages.spotifyEnglishLyrics,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  rowFlex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Handmade with Love",
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: StudioColors.textHomeAboutContentHeader,
+                        ),
                       ),
-                    )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Handmade with Love",
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      Text(
+                        "At Studio N, “Handmade with Love” means delivering authentic, sustainable luxury for moments that truly matter.Hand-crafted with care by Himalayan artisans, our products embody the spirit of the mountains and the art of generations. Every candle and décor piece is thoughtfully made, blending natural materials, premium 100 % natural fragrances, and a touch of tradition.",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: StudioColors.textHomeAboutContent,
                         ),
-                        SizedBox(
-                          height: 24,
-                        ),
-                        Text(
-                          "At Studio N, “Handmade with Love” means delivering authentic, sustainable luxury for moments that truly matter.Hand-crafted with care by Himalayan artisans, our products embody the spirit of the mountains and the art of generations. Every candle and décor piece is thoughtfully made, blending natural materials, premium 100 % natural fragrances, and a touch of tradition.",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ],
-                    );
-            },
-          ),
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
         ],
       ),
     );

@@ -1,42 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:nstudio/src/design/studio_colors.dart';
-import 'package:nstudio/src/design/utils/device_utils.dart';
+import 'package:nstudio/src/design/constants/studio_size.dart';
+import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/home/data/models/home_product_item.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeProductsSection extends StatelessWidget {
   final List<HomeProductItem> productsList;
-  const HomeProductsSection(
-    this.productsList, {
+  final VoidCallback onExploreProductsClicked;
+
+  const HomeProductsSection({
     super.key,
+    required this.productsList,
+    required this.onExploreProductsClicked,
   });
 
   @override
   Widget build(BuildContext context) {
     final sectionWidth = MediaQuery.sizeOf(context).width - 96;
 
-    final crossAxisCount = (DeviceUtils.isDesktop(context)
-            ? (sectionWidth / 350)
-            : (sectionWidth / 300))
-        .floor();
+    final int crossAxisCount;
+    // Legacy 300
+    if (ResponsiveBreakpoints.of(context).isDesktop) {
+      crossAxisCount = (sectionWidth / 350).floor();
+    } else if (ResponsiveBreakpoints.of(context).isTablet) {
+      crossAxisCount = (sectionWidth / 250).floor();
+    } else {
+      crossAxisCount = (sectionWidth / 150).floor();
+    }
+
+    final horizontalPadding = ResponsiveBreakpoints.of(context).isDesktop
+        ? StudioSize.homeSectionHorizontalPaddingDesktop
+        : StudioSize.homeSectionHorizontalPadding;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 24,
-        horizontal: 48,
+      padding: EdgeInsets.symmetric(
+        vertical: StudioSize.homeSectionTopPadding,
+        horizontal: horizontalPadding,
       ),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 24),
-            child: Text(
-              "OUR PRODUCTS",
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),
+          Text(
+            "Our Products",
+            style: TextStyle(
+              fontSize: StudioSize.homeHeaderTextSize,
+              fontWeight: FontWeight.bold,
+              color: StudioColors.homeProductsTextHeader,
             ),
           ),
+          SizedBox(
+            height: StudioSize.homePaddingAfterHeader,
+          ),
           GridView.builder(
-            itemCount: productsList.length,
+            itemCount: productsList.length.clamp(0, 6),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -45,71 +60,73 @@ class HomeProductsSection extends StatelessWidget {
               crossAxisSpacing: 16,
             ),
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                margin: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        productsList[index].assetName,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            productsList[index].name,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              );
+              return _ProductItem(productsList[index]);
             },
           ),
           SizedBox(
-            height: 24,
+            height: 48,
           ),
           FilledButton(
-            onPressed: () {
-              // TODO
-            },
+            onPressed: onExploreProductsClicked,
             style: FilledButton.styleFrom(
-              backgroundColor: StudioColors.primaryGreen,
-              foregroundColor: Colors.white,
+              backgroundColor: StudioColors.homeProductsButtonBackground,
+              foregroundColor: StudioColors.homeProductsButtonText,
               textStyle: TextStyle(
-                fontSize: 14,
+                fontSize: StudioSize.homeButtonTextSize,
                 fontWeight: FontWeight.w600,
               ),
-              fixedSize: Size.fromHeight(48),
-              padding: EdgeInsets.symmetric(horizontal: 48),
+              fixedSize: Size.fromHeight(StudioSize.homeButtonHeight),
+              padding: EdgeInsets.symmetric(
+                horizontal: StudioSize.homeButtonPaddingHorizontal,
+                vertical: StudioSize.homeButtonPaddingVertical,
+              ),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
+                borderRadius:
+                    BorderRadius.circular(StudioSize.homeButtonBorderRadius),
               ),
             ),
             child: Text("Explore All Products"),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ProductItem extends StatelessWidget {
+  final HomeProductItem productItem;
+
+  const _ProductItem(this.productItem);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
+            child: Image.asset(
+              productItem.assetName,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.only(top: 8, left: 16),
+          child: Text(
+            productItem.name,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: ResponsiveBreakpoints.of(context).isMobile ? 20 : 16,
+              fontWeight: FontWeight.bold,
+              color: StudioColors.homeProductsTextProduct,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
