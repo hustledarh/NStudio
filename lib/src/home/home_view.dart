@@ -7,6 +7,7 @@ import 'package:nstudio/src/home/components/home_hero_section.dart';
 import 'package:nstudio/src/home/components/home_products_section.dart';
 import 'package:nstudio/src/home/data/home_products_repository.dart';
 import 'package:nstudio/src/home/data/models/home_section_type.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -49,6 +50,14 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  void _onVisibilityChanged(HomeSectionType section, VisibilityInfo info) {
+    if (info.visibleFraction > 0.5) {
+      setState(() {
+        _selectedSection = section;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,27 +72,47 @@ class _HomeViewState extends State<HomeView> {
         controller: ScrollController(),
         child: Column(
           children: [
-            HomeHeroSection(
-              key: _heroSectionKey,
-              onShopNowClicked: () {
-                setState(() {
-                  _scrollToSection(HomeSectionType.shop);
-                });
-              },
+            VisibilityDetector(
+              key: Key(HomeSectionType.home.toString()),
+              onVisibilityChanged: (info) =>
+                  _onVisibilityChanged(HomeSectionType.home, info),
+              child: HomeHeroSection(
+                key: _heroSectionKey,
+                onShopNowClicked: () {
+                  setState(() {
+                    _scrollToSection(HomeSectionType.shop);
+                  });
+                },
+              ),
             ),
-            HomeProductsSection(
-              key: _productsSectionKey,
-              productsList: HomeProductsRepository.fetchProducts(),
-              onExploreProductsClicked: () {},
+            VisibilityDetector(
+              key: Key(HomeSectionType.shop.toString()),
+              onVisibilityChanged: (info) =>
+                  _onVisibilityChanged(HomeSectionType.shop, info),
+              child: HomeProductsSection(
+                key: _productsSectionKey,
+                productsList: HomeProductsRepository.fetchProducts(),
+                onExploreProductsClicked: () {},
+              ),
             ),
-            HomeAboutSection(
-              key: _aboutSectionKey,
+            VisibilityDetector(
+              key: Key(HomeSectionType.aboutUs.toString()),
+              onVisibilityChanged: (info) =>
+                  _onVisibilityChanged(HomeSectionType.aboutUs, info),
+              child: HomeAboutSection(
+                key: _aboutSectionKey,
+              ),
             ),
-            HomeContactSection(
-              key: _contactSectionKey,
-              onInstagramClicked: () {},
-              onPhoneClicked: () {},
-              onEmailClicked: () {},
+            VisibilityDetector(
+              key: Key(HomeSectionType.contact.toString()),
+              onVisibilityChanged: (info) =>
+                  _onVisibilityChanged(HomeSectionType.contact, info),
+              child: HomeContactSection(
+                key: _contactSectionKey,
+                onInstagramClicked: () {},
+                onPhoneClicked: () {},
+                onEmailClicked: () {},
+              ),
             ),
           ],
         ),
