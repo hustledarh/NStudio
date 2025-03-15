@@ -18,18 +18,23 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   var _selectedSection = HomeSectionType.home;
+  var _isSectionChangeInProgress = false;
   final GlobalKey _heroSectionKey = GlobalKey();
   final GlobalKey _productsSectionKey = GlobalKey();
   final GlobalKey _aboutSectionKey = GlobalKey();
   final GlobalKey _contactSectionKey = GlobalKey();
 
-  void _scrollToSection(HomeSectionType section) {
+  void _scrollToSection(HomeSectionType section) async {
+    setState(() {
+      _isSectionChangeInProgress = true;
+    });
+
     final GlobalKey keyToUse;
     switch (section) {
       case HomeSectionType.home:
         keyToUse = _heroSectionKey;
         break;
-      case HomeSectionType.shop:
+      case HomeSectionType.products:
         keyToUse = _productsSectionKey;
         break;
       case HomeSectionType.aboutUs:
@@ -42,16 +47,23 @@ class _HomeViewState extends State<HomeView> {
     _selectedSection = section;
     final context = keyToUse.currentContext;
     if (context != null) {
-      Scrollable.ensureVisible(
+      await Scrollable.ensureVisible(
         context,
         duration: Duration(seconds: 1),
         curve: Curves.easeInOut,
       );
+      await Future.delayed(Duration(milliseconds: 300));
+      setState(() {
+        _isSectionChangeInProgress = false;
+      });
     }
   }
 
   void _onVisibilityChanged(HomeSectionType section, VisibilityInfo info) {
-    if (info.visibleFraction > 0.5) {
+    if (_isSectionChangeInProgress) {
+      return;
+    }
+    if (info.visibleFraction > 0.7) {
       setState(() {
         _selectedSection = section;
       });
@@ -80,15 +92,15 @@ class _HomeViewState extends State<HomeView> {
                 key: _heroSectionKey,
                 onShopNowClicked: () {
                   setState(() {
-                    _scrollToSection(HomeSectionType.shop);
+                    _scrollToSection(HomeSectionType.products);
                   });
                 },
               ),
             ),
             VisibilityDetector(
-              key: Key(HomeSectionType.shop.toString()),
+              key: Key(HomeSectionType.products.toString()),
               onVisibilityChanged: (info) =>
-                  _onVisibilityChanged(HomeSectionType.shop, info),
+                  _onVisibilityChanged(HomeSectionType.products, info),
               child: HomeProductsSection(
                 key: _productsSectionKey,
                 productsList: HomeProductsRepository.fetchProducts(),

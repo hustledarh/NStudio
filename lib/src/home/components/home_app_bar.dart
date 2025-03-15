@@ -34,17 +34,17 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
           ),
           _AppBarButton(
+            text: "Products",
+            isSelected: selectedSection == HomeSectionType.products,
+            onPressed: () {
+              onSectionSelected(HomeSectionType.products);
+            },
+          ),
+          _AppBarButton(
             text: "About Us",
             isSelected: selectedSection == HomeSectionType.aboutUs,
             onPressed: () {
               onSectionSelected(HomeSectionType.aboutUs);
-            },
-          ),
-          _AppBarButton(
-            text: "Shop",
-            isSelected: selectedSection == HomeSectionType.shop,
-            onPressed: () {
-              onSectionSelected(HomeSectionType.shop);
             },
           ),
           _AppBarButton(

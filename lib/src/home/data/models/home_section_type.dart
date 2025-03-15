@@ -1,6 +1,6 @@
 enum HomeSectionType {
   home,
+  products,
   aboutUs,
-  shop,
   contact,
 }
