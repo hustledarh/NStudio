@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
+import 'package:nstudio/src/design/constants/studio_images.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -72,16 +74,17 @@ class _SocialOptionsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = ResponsiveBreakpoints.of(context).isMobile ? 24.0 : 36.0;
+    final iconSize = ResponsiveBreakpoints.of(context).isMobile ? 28.0 : 36.0;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
           iconSize: iconSize,
-          icon: Icon(
-            Icons.photo,
-            color: Colors.white,
+          icon: SvgPicture.asset(
+            StudioImages.instagramLogo,
+            width: iconSize,
+            height: iconSize,
           ),
           onPressed: onInstagramClicked,
         ),
@@ -91,7 +94,8 @@ class _SocialOptionsRow extends StatelessWidget {
         IconButton(
           iconSize: iconSize,
           icon: Icon(
-            Icons.phone,
+            Icons.phone_outlined,
+            size: iconSize,
             color: Colors.white,
           ),
           onPressed: onPhoneClicked,
@@ -102,7 +106,8 @@ class _SocialOptionsRow extends StatelessWidget {
         IconButton(
           iconSize: iconSize,
           icon: Icon(
-            Icons.mail,
+            Icons.mail_outline,
+            size: iconSize,
             color: Colors.white,
           ),
           onPressed: onEmailClicked,
