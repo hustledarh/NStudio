@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nstudio/src/design/components/image_watermark.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/home/data/models/home_product_item.dart';
@@ -107,9 +108,10 @@ class _ProductItem extends StatelessWidget {
         Expanded(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
-            child: Image.asset(
-              productItem.assetName,
-              fit: BoxFit.cover,
+            child: ImageWatermark(
+              assetName: productItem.assetName,
+              watermarkSize:
+                  ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
             ),
           ),
         ),

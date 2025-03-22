@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nstudio/src/design/components/image_watermark.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
@@ -72,10 +73,12 @@ class _HomeHeroSectionWeb extends StatelessWidget {
             padding: EdgeInsets.only(right: 48),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
-              child: Image.asset(
-                StudioImages.spotifyEnglishLyrics,
+              child: ImageWatermark(
+                assetName: StudioImages.spotifyEnglishLyrics,
                 width: sectionHeight * 0.6,
                 height: sectionHeight * 0.6,
+                watermarkSize:
+                    ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
               ),
             ),
           ),
@@ -112,11 +115,14 @@ class _HomeHeroSectionMobile extends StatelessWidget {
                 onShopNowClicked: onShopNowClicked,
               ),
             ),
-            Image.asset(
-              StudioImages.spotifyEnglishLyrics,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+            AspectRatio(
+              aspectRatio: 1.5,
+              child: ImageWatermark(
+                assetName: StudioImages.spotifyEnglishLyrics,
+                watermarkSize:
+                    ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
+              ),
+            )
           ],
         ),
       ),
