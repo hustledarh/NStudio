@@ -88,7 +88,6 @@ class _AppBarButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        overlayColor: StudioColors.primaryGreen,
         foregroundColor: isSelected
             ? StudioColors.homeAppbarTextSelected
             : StudioColors.homeAppbarTextPrimary,

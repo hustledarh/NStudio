@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nstudio/src/design/constants/studio_images.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -37,17 +36,6 @@ class HomeAboutSection extends StatelessWidget {
               children: [
                 ResponsiveRowColumnItem(
                   rowFlex: 1,
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.circular(StudioSize.imageBorderRadius),
-                    child: Image.asset(
-                      StudioImages.spotifyEnglishLyrics,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                ResponsiveRowColumnItem(
-                  rowFlex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,

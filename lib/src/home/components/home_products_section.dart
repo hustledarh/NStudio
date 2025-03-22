@@ -51,7 +51,7 @@ class HomeProductsSection extends StatelessWidget {
             height: StudioSize.homePaddingAfterHeader,
           ),
           GridView.builder(
-            itemCount: productsList.length.clamp(0, 6),
+            itemCount: productsList.length,
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
