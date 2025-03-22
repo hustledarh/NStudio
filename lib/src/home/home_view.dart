@@ -7,6 +7,7 @@ import 'package:nstudio/src/home/components/home_hero_section.dart';
 import 'package:nstudio/src/home/components/home_products_section.dart';
 import 'package:nstudio/src/home/data/home_products_repository.dart';
 import 'package:nstudio/src/home/data/models/home_section_type.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class HomeView extends StatefulWidget {
@@ -70,6 +71,12 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  Future<void> _launchURL(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      // Do Something
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,9 +128,16 @@ class _HomeViewState extends State<HomeView> {
                   _onVisibilityChanged(HomeSectionType.contact, info),
               child: HomeContactSection(
                 key: _contactSectionKey,
-                onInstagramClicked: () {},
-                onPhoneClicked: () {},
-                onEmailClicked: () {},
+                onInstagramClicked: () {
+                  _launchURL('https://instagram.com/nandiini_jain');
+                },
+                onPhoneClicked: () {
+                  _launchURL('https://api.whatsapp.com/send?phone=8237636728');
+                },
+                onEmailClicked: () {
+                  _launchURL(
+                      'mailto:studio.n.circle@gmail.com?subject=ORDER&body=I really linked your product and wanted to get something customised for myself');
+                },
               ),
             ),
           ],
