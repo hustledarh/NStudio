@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
                     breakpoints: const [
                       Breakpoint(start: 0, end: 450, name: MOBILE),
                       Breakpoint(start: 451, end: 800, name: TABLET),
-                      Breakpoint(start: 801, end: 1920, name: DESKTOP),
+                      Breakpoint(
+                          start: 801, end: double.infinity, name: DESKTOP),
                     ],
                   ),
               initialRoute: "/",
@@ -37,14 +38,14 @@ class MyApp extends StatelessWidget {
                   settings: routeSettings,
                   builder: (BuildContext context) {
                     return MaxWidthBox(
-                      maxWidth: 1200,
+                      maxWidth: 1600,
                       backgroundColor: const Color(0xFFF5F5F5),
                       child: ResponsiveScaledBox(
                         width: ResponsiveValue<double>(context,
                             conditionalValues: [
                               Condition.equals(name: MOBILE, value: 450),
                               Condition.equals(name: TABLET, value: 800),
-                              Condition.equals(name: DESKTOP, value: 1200),
+                              Condition.equals(name: DESKTOP, value: 1600),
                             ]).value,
                         child: BouncingScrollWrapper.builder(
                           context,
