@@ -8,24 +8,36 @@ class HomeProductsRepository {
     return List.unmodifiable(
       [
         HomeProductItem(
-          name: 'Travel Collage',
-          assetName: StudioImages.spotifyEnglishLyrics,
-        ),
-        HomeProductItem(
-          name: 'Family Collage',
-          assetName: StudioImages.spotifyEnglishLyrics,
-        ),
-        HomeProductItem(
           name: 'Baby Collage',
-          assetName: StudioImages.spotifyEnglishLyrics,
+          assetName: StudioImages.productBabyCollage,
         ),
         HomeProductItem(
-          name: 'Spotify English Lyrics',
-          assetName: StudioImages.spotifyEnglishLyrics,
+          name: 'Family Collage 1',
+          assetName: StudioImages.productFamilyCollage1,
         ),
         HomeProductItem(
-          name: 'Spotify Hindi Lyrics',
-          assetName: StudioImages.spotifyEnglishLyrics,
+          name: 'Family Collage 2',
+          assetName: StudioImages.productFamilyCollage2,
+        ),
+        HomeProductItem(
+          name: 'Hindi Lyrics',
+          assetName: StudioImages.productLyricsHindi,
+        ),
+        HomeProductItem(
+          name: 'Hinglish Lyrics 1',
+          assetName: StudioImages.productLyricsHinglish1,
+        ),
+        HomeProductItem(
+          name: 'Hinglish Lyrics 2',
+          assetName: StudioImages.productLyricsHinglish2,
+        ),
+        HomeProductItem(
+          name: 'Travel Collage',
+          assetName: StudioImages.productTravelCollage,
+        ),
+        HomeProductItem(
+          name: 'Wall Collage',
+          assetName: StudioImages.productWallCollage,
         ),
       ],
     );

@@ -20,7 +20,7 @@ class ImageWatermark extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          StudioImages.spotifyEnglishLyrics,
+          assetName,
           fit: BoxFit.cover,
           width: width,
           height: height,

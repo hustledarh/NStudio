@@ -74,7 +74,7 @@ class _HomeHeroSectionWeb extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
               child: ImageWatermark(
-                assetName: StudioImages.spotifyEnglishLyrics,
+                assetName: StudioImages.productLyricsHinglish2,
                 width: sectionHeight * 0.6,
                 height: sectionHeight * 0.6,
                 watermarkSize:
@@ -118,7 +118,7 @@ class _HomeHeroSectionMobile extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1.5,
               child: ImageWatermark(
-                assetName: StudioImages.spotifyEnglishLyrics,
+                assetName: StudioImages.productLyricsHinglish2,
                 watermarkSize:
                     ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
               ),
