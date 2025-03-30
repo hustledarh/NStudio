@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nstudio/src/home/home_view.dart';
+import 'package:nstudio/src/home2/home_screen_v2.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class MyApp extends StatelessWidget {
@@ -32,11 +32,15 @@ class MyApp extends StatelessWidget {
                 maxWidth: 1600,
                 backgroundColor: const Color(0xFFF5F5F5),
                 child: ResponsiveScaledBox(
-                  width: ResponsiveValue<double>(context, conditionalValues: [
-                    Condition.equals(name: MOBILE, value: 450),
-                    Condition.equals(name: TABLET, value: 800),
-                    Condition.equals(name: DESKTOP, value: 1600),
-                  ]).value,
+                  width: ResponsiveValue<double>(
+                    context,
+                    defaultValue: 0,
+                    conditionalValues: [
+                      Condition.equals(name: MOBILE, value: 450),
+                      Condition.equals(name: TABLET, value: 800),
+                      Condition.equals(name: DESKTOP, value: 1600),
+                    ],
+                  ).value,
                   child: BouncingScrollWrapper.builder(
                     context,
                     _buildPage(routeSettings.name ?? ''),
@@ -50,6 +54,6 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _buildPage(String name) {
-    return HomeView();
+    return HomeScreenV2();
   }
 }

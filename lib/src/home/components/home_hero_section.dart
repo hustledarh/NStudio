@@ -77,8 +77,6 @@ class _HomeHeroSectionWeb extends StatelessWidget {
                 assetName: StudioImages.productLyricsHinglish2,
                 width: sectionHeight * 0.6,
                 height: sectionHeight * 0.6,
-                watermarkSize:
-                    ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
               ),
             ),
           ),
@@ -119,8 +117,6 @@ class _HomeHeroSectionMobile extends StatelessWidget {
               aspectRatio: 1.5,
               child: ImageWatermark(
                 assetName: StudioImages.productLyricsHinglish2,
-                watermarkSize:
-                    ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
               ),
             )
           ],

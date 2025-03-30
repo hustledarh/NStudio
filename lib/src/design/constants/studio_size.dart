@@ -2,7 +2,7 @@ final class StudioSize {
   const StudioSize._();
 
   // Height
-  static const double homeAppbarHeight = 66;
+  static const double homeAppbarHeight = 64;
   static const double homeButtonHeight = 48;
 
   // Padding

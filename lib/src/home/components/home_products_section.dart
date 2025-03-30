@@ -110,8 +110,6 @@ class _ProductItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
             child: ImageWatermark(
               assetName: productItem.assetName,
-              watermarkSize:
-                  ResponsiveBreakpoints.of(context).isMobile ? 30 : 40,
             ),
           ),
         ),

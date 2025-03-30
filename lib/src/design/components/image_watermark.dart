@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ImageWatermark extends StatelessWidget {
   final String assetName;
   final double? width;
   final double? height;
-  final double watermarkSize;
+  final double? aspectRatio;
+  final double? watermarkSize;
 
   const ImageWatermark({
     this.width = double.infinity,
     this.height = double.infinity,
-    this.watermarkSize = 40,
+    this.aspectRatio,
+    this.watermarkSize,
     required this.assetName,
     super.key,
   });
@@ -19,12 +22,20 @@ class ImageWatermark extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          assetName,
-          fit: BoxFit.cover,
-          width: width,
-          height: height,
-        ),
+        aspectRatio != null
+            ? AspectRatio(
+                aspectRatio: aspectRatio!,
+                child: Image.asset(
+                  assetName,
+                  fit: BoxFit.cover,
+                ),
+              )
+            : Image.asset(
+                assetName,
+                fit: BoxFit.cover,
+                width: width,
+                height: height,
+              ),
         Positioned(
           bottom: 0,
           left: 0,
@@ -48,8 +59,10 @@ class ImageWatermark extends StatelessWidget {
           right: 16,
           child: Image.asset(
             StudioImages.studioLogo,
-            width: watermarkSize,
-            height: watermarkSize,
+            width: watermarkSize ??
+                (ResponsiveBreakpoints.of(context).isMobile ? 30 : 40),
+            height: watermarkSize ??
+                (ResponsiveBreakpoints.of(context).isMobile ? 30 : 40),
           ),
         ),
       ],
