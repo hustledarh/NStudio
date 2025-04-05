@@ -60,6 +60,12 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
           children: [
             HomeHeroSectionV2(
               key: _heroSectionKey,
+              onShopNow: () {
+                _scrollToSection(HomeSectionType.products);
+              },
+              onLearnMore: () {
+                _scrollToSection(HomeSectionType.aboutUs);
+              },
             ),
             HomeProductsSectionV2(
               key: _productsSectionKey,

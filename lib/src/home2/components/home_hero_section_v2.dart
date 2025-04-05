@@ -7,7 +7,14 @@ import 'package:nstudio/src/design/utils/device_utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeHeroSectionV2 extends StatelessWidget {
-  const HomeHeroSectionV2({super.key});
+  final VoidCallback onShopNow;
+  final VoidCallback onLearnMore;
+
+  const HomeHeroSectionV2({
+    super.key,
+    required this.onShopNow,
+    required this.onLearnMore,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,10 @@ class HomeHeroSectionV2 extends StatelessWidget {
       children: [
         ResponsiveRowColumnItem(
           rowFlex: 1,
-          child: _HeroSectionText(),
+          child: _HeroSectionText(
+            onShopNow: onShopNow,
+            onLearnMore: onLearnMore,
+          ),
         ),
         ResponsiveRowColumnItem(
           rowFlex: 1,
@@ -46,7 +56,13 @@ class HomeHeroSectionV2 extends StatelessWidget {
 }
 
 class _HeroSectionText extends StatelessWidget {
-  const _HeroSectionText();
+  final VoidCallback onShopNow;
+  final VoidCallback onLearnMore;
+
+  const _HeroSectionText({
+    required this.onShopNow,
+    required this.onLearnMore,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +122,7 @@ class _HeroSectionText extends StatelessWidget {
                     ? double.infinity
                     : null,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: onShopNow,
                   style: FilledButton.styleFrom(
                     backgroundColor: StudioColors.primary,
                     foregroundColor: StudioColors.primaryForeground,
@@ -126,7 +142,7 @@ class _HeroSectionText extends StatelessWidget {
                     ? double.infinity
                     : null,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: onLearnMore,
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.black,
