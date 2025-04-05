@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:nstudio/src/home/data/models/home_product_item.dart';
-import 'package:nstudio/src/home2/components/home_product_item_feature_tag.dart';
-import 'package:nstudio/src/home2/components/home_product_item_image_carousel.dart';
+import 'package:nstudio/src/home/components/home_product_item_feature_tag.dart';
+import 'package:nstudio/src/home/components/home_product_item_image_carousel.dart';
 
 class HomeProductItemV2 extends StatefulWidget {
   final HomeProductItem productItem;
@@ -42,7 +42,7 @@ class _HomeProductItemV2State extends State<HomeProductItemV2> {
               child: Column(
                 children: [
                   HomeProductItemImageCarousel(
-                    assetsName: widget.productItem.assetName,
+                    assetsName: widget.productItem.assetPathList,
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(

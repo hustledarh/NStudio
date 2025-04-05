@@ -1,36 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/components/image_watermark.dart';
+import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
 import 'package:nstudio/src/design/constants/studio_size.dart';
-import 'package:nstudio/src/design/constants/studio_colors.dart';
+import 'package:nstudio/src/design/utils/device_utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class HomeHeroSection extends StatelessWidget {
-  final VoidCallback onShopNowClicked;
+class HomeHeroSectionV2 extends StatelessWidget {
+  final VoidCallback onShopNow;
+  final VoidCallback onLearnMore;
 
-  const HomeHeroSection({required this.onShopNowClicked, super.key});
+  const HomeHeroSectionV2({
+    super.key,
+    required this.onShopNow,
+    required this.onLearnMore,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ResponsiveRowColumn(
+      layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      columnSpacing: 32,
+      rowPadding: EdgeInsets.symmetric(
+        horizontal: 32,
+        vertical: 100,
+      ),
+      columnPadding: EdgeInsets.symmetric(
+        horizontal: 32,
+        vertical: 40,
+      ),
       children: [
-        ResponsiveVisibility(
-          visible: false,
-          visibleConditions: [
-            Condition.equals(name: MOBILE),
-            Condition.equals(name: TABLET),
-          ],
-          child: _HomeHeroSectionMobile(
-            onShopNowClicked: onShopNowClicked,
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          child: _HeroSectionText(
+            onShopNow: onShopNow,
+            onLearnMore: onLearnMore,
           ),
         ),
-        ResponsiveVisibility(
-          visible: false,
-          visibleConditions: [
-            Condition.largerThan(name: TABLET),
-          ],
-          child: _HomeHeroSectionWeb(
-            onShopNowClicked: onShopNowClicked,
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
+            child: ImageWatermark(
+              assetName: StudioImages.productAllCandles,
+              aspectRatio:
+                  ResponsiveBreakpoints.of(context).isMobile ? 1.0 : 1.3,
+            ),
           ),
         ),
       ],
@@ -38,155 +55,112 @@ class HomeHeroSection extends StatelessWidget {
   }
 }
 
-class _HomeHeroSectionWeb extends StatelessWidget {
-  final VoidCallback onShopNowClicked;
+class _HeroSectionText extends StatelessWidget {
+  final VoidCallback onShopNow;
+  final VoidCallback onLearnMore;
 
-  const _HomeHeroSectionWeb({
-    required this.onShopNowClicked,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final sectionHeight = MediaQuery.sizeOf(context).height * 0.92;
-    final sectionWidth = MediaQuery.sizeOf(context).width;
-
-    return SizedBox(
-      height: sectionHeight,
-      width: sectionWidth,
-      child: Stack(
-        alignment: Alignment.centerRight,
-        children: [
-          Container(
-            height: sectionHeight / 2,
-            width: double.infinity,
-            color: StudioColors.backgroundHomeHeroSelected,
-          ),
-          Positioned(
-            top: sectionHeight * 0.4,
-            left: 48,
-            child: _WelcomeMessageColumn(
-              CrossAxisAlignment.start,
-              onShopNowClicked: onShopNowClicked,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 48),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
-              child: ImageWatermark(
-                assetName: StudioImages.productLyricsHinglish2,
-                width: sectionHeight * 0.6,
-                height: sectionHeight * 0.6,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _HomeHeroSectionMobile extends StatelessWidget {
-  final VoidCallback onShopNowClicked;
-
-  const _HomeHeroSectionMobile({required this.onShopNowClicked});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: StudioSize.homeSectionTopPadding,
-        left: StudioSize.homeSectionHorizontalPadding,
-        right: StudioSize.homeSectionHorizontalPadding,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: double.infinity,
-              color: StudioColors.backgroundHomeHeroSelected,
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-              child: _WelcomeMessageColumn(
-                CrossAxisAlignment.center,
-                onShopNowClicked: onShopNowClicked,
-              ),
-            ),
-            AspectRatio(
-              aspectRatio: 1.5,
-              child: ImageWatermark(
-                assetName: StudioImages.productLyricsHinglish2,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _WelcomeMessageColumn extends StatelessWidget {
-  final CrossAxisAlignment crossAxisAlignment;
-  final VoidCallback onShopNowClicked;
-
-  const _WelcomeMessageColumn(
-    this.crossAxisAlignment, {
-    required this.onShopNowClicked,
+  const _HeroSectionText({
+    required this.onShopNow,
+    required this.onLearnMore,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: crossAxisAlignment,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Welcome to",
+          "Handcrafted\nMemories",
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w900,
-            color: StudioColors.homeHeroTextWelcome,
+            fontSize: DeviceUtils.getResponsiveValue(
+              context,
+              mobileValue: 36,
+              tabletValue: 48,
+              desktopValue: 64,
+            ),
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
         Text(
-          "Studio N",
+          "Framed with Love",
           style: TextStyle(
-            fontSize: 48,
+            fontSize: DeviceUtils.getResponsiveValue(
+              context,
+              mobileValue: 36,
+              tabletValue: 48,
+              desktopValue: 64,
+            ),
             fontWeight: FontWeight.bold,
-            color: StudioColors.homeHeroTextWelcome,
+            color: StudioColors.mutedForeground,
           ),
         ),
-        Text(
-          "Crafted with Love, Inspired by You",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: StudioColors.homeHeroTextWelcome,
-          ),
-        ),
-        SizedBox(
-          height: 48,
-        ),
-        FilledButton(
-          onPressed: onShopNowClicked,
-          style: FilledButton.styleFrom(
-            backgroundColor: StudioColors.homeHeroButtonBackground,
-            foregroundColor: StudioColors.homeHeroButtonText,
-            padding: EdgeInsets.symmetric(
-              horizontal: StudioSize.homeButtonPaddingHorizontal,
-              vertical: StudioSize.homeButtonPaddingVertical,
-            ),
-            textStyle: TextStyle(
-              fontSize: StudioSize.homeButtonTextSize,
-              fontWeight: FontWeight.w600,
-            ),
-            fixedSize: Size.fromHeight(StudioSize.homeButtonHeight),
-            shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(StudioSize.homeButtonBorderRadius),
+        MaxWidthBox(
+          alignment: Alignment.centerLeft,
+          maxWidth: 600,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            child: Text(
+              "Beautifully designed photo collages and lyric frames, handmade with care by Maharashtra artisans.",
+              style: TextStyle(
+                fontSize: 24,
+                color: StudioColors.mutedForeground,
+              ),
             ),
           ),
-          child: Text("Shop Now"),
+        ),
+        ResponsiveRowColumn(
+          layout: ResponsiveBreakpoints.of(context).smallerThan(TABLET)
+              ? ResponsiveRowColumnType.COLUMN
+              : ResponsiveRowColumnType.ROW,
+          columnSpacing: 16,
+          rowSpacing: 16,
+          children: [
+            ResponsiveRowColumnItem(
+              child: SizedBox(
+                width: ResponsiveBreakpoints.of(context).isMobile
+                    ? double.infinity
+                    : null,
+                child: FilledButton(
+                  onPressed: onShopNow,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: StudioColors.primary,
+                    foregroundColor: StudioColors.primaryForeground,
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    textStyle: TextStyle(fontSize: 16),
+                  ),
+                  child: Text("Shop Now"),
+                ),
+              ),
+            ),
+            ResponsiveRowColumnItem(
+              child: SizedBox(
+                width: ResponsiveBreakpoints.of(context).isMobile
+                    ? double.infinity
+                    : null,
+                child: OutlinedButton(
+                  onPressed: onLearnMore,
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    side: BorderSide(
+                      color: StudioColors.border,
+                      width: 2,
+                    ),
+                    textStyle: TextStyle(fontSize: 16),
+                  ),
+                  child: Text("Learn More"),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

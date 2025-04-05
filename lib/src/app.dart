@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nstudio/src/home2/home_screen_v2.dart';
+import 'package:nstudio/src/home/home_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class MyApp extends StatelessWidget {

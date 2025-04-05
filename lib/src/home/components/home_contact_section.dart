@@ -2,48 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/design/constants/studio_images.dart';
-import 'package:nstudio/src/design/constants/studio_size.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class HomeContactSection extends StatelessWidget {
+class HomeContactSectionV2 extends StatelessWidget {
   final VoidCallback onInstagramClicked;
   final VoidCallback onPhoneClicked;
   final VoidCallback onEmailClicked;
 
-  const HomeContactSection({
+  const HomeContactSectionV2({
+    super.key,
     required this.onInstagramClicked,
     required this.onPhoneClicked,
     required this.onEmailClicked,
-    super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      color: StudioColors.bgHomeContactSection,
+      color: StudioColors.muted,
       padding: EdgeInsets.symmetric(
-        vertical: StudioSize.homeSectionTopPadding,
-        horizontal: StudioSize.homeSectionHorizontalPadding,
+        vertical: 40,
+        horizontal: 32,
       ),
       child: Column(
         children: [
           Text(
-            'Contact Us',
+            'Get in Touch',
             style: TextStyle(
-              fontSize: StudioSize.homeHeaderTextSize,
+              fontSize: ResponsiveBreakpoints.of(context).isDesktop ? 36 : 30,
               fontWeight: FontWeight.bold,
-              color: StudioColors.textHomeContactHeader,
+              color: Colors.black,
             ),
           ),
           SizedBox(
-            height: StudioSize.homePaddingAfterHeader,
+            height: 32,
           ),
           Text(
             'We are here to assist you with any questions or inquiries. Reach out to us via Instagram, phone, or email.\nFollow us on social media to stay updated with the latest news and exclusive offers.',
             style: TextStyle(
-              color: StudioColors.textHomeContactContent,
-              fontSize: 16,
+              fontSize: 18,
+              color: StudioColors.mutedForeground,
             ),
             textAlign: TextAlign.center,
           ),
@@ -74,45 +72,73 @@ class _SocialOptionsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = ResponsiveBreakpoints.of(context).isMobile ? 28.0 : 36.0;
+    final iconSize = ResponsiveBreakpoints.of(context).isMobile ? 24.0 : 30.0;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        IconButton(
-          iconSize: iconSize,
+        _SocialButton(
           icon: SvgPicture.asset(
             StudioImages.instagramLogo,
             width: iconSize,
             height: iconSize,
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
           ),
           onPressed: onInstagramClicked,
         ),
         SizedBox(
           width: 16,
         ),
-        IconButton(
-          iconSize: iconSize,
+        _SocialButton(
           icon: Icon(
             Icons.phone_outlined,
             size: iconSize,
-            color: Colors.white,
+            color: Colors.black,
           ),
           onPressed: onPhoneClicked,
         ),
         SizedBox(
           width: 16,
         ),
-        IconButton(
-          iconSize: iconSize,
+        _SocialButton(
           icon: Icon(
             Icons.mail_outline,
             size: iconSize,
-            color: Colors.white,
+            color: Colors.black,
           ),
           onPressed: onEmailClicked,
         ),
       ],
+    );
+  }
+}
+
+class _SocialButton extends StatelessWidget {
+  final Widget icon;
+  final VoidCallback onPressed;
+
+  const _SocialButton({
+    required this.icon,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(50),
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(50),
+        child: Container(
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: icon,
+        ),
+      ),
     );
   }
 }

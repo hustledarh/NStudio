@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/home/data/models/home_section_type.dart';
-import 'package:nstudio/src/home2/components/home_about_section_v2.dart';
-import 'package:nstudio/src/home2/components/home_app_bar_v2.dart';
-import 'package:nstudio/src/home2/components/home_contact_section_v2.dart';
-import 'package:nstudio/src/home2/components/home_hero_section_v2.dart';
-import 'package:nstudio/src/home2/components/home_products_section_v2.dart';
+import 'package:nstudio/src/home/components/home_about_section.dart';
+import 'package:nstudio/src/home/components/home_app_bar.dart';
+import 'package:nstudio/src/home/components/home_contact_section.dart';
+import 'package:nstudio/src/home/components/home_hero_section.dart';
+import 'package:nstudio/src/home/components/home_products_section.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreenV2 extends StatefulWidget {
@@ -56,7 +56,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: StudioColors.backgroundHome,
+      backgroundColor: StudioColors.background,
       appBar: HomeAppBarV2(
         onSectionSelected: (newSection) {
           _scrollToSection(newSection);

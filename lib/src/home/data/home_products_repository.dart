@@ -18,13 +18,13 @@ class HomeProductsRepository {
       [
         HomeProductItem(
           name: 'Baby Collage',
-          assetName: [StudioImages.productBabyCollage].unmodifiable(),
+          assetPathList: [StudioImages.productBabyCollage].unmodifiable(),
           type: HomeProductType.photoCollage,
           isFeatured: true,
         ),
         HomeProductItem(
           name: 'Family Collage',
-          assetName: [
+          assetPathList: [
             StudioImages.productFamilyCollage1,
             StudioImages.productFamilyCollage2,
             StudioImages.productFamilyCollage3,
@@ -34,13 +34,13 @@ class HomeProductsRepository {
         ),
         HomeProductItem(
           name: 'Hindi Lyrics',
-          assetName: [StudioImages.productLyricsHindi].unmodifiable(),
+          assetPathList: [StudioImages.productLyricsHindi].unmodifiable(),
           type: HomeProductType.lyricFrames,
           isFeatured: true,
         ),
         HomeProductItem(
           name: 'Hinglish Lyrics',
-          assetName: [
+          assetPathList: [
             StudioImages.productLyricsHinglish1,
             StudioImages.productLyricsHinglish2
           ].unmodifiable(),
@@ -48,29 +48,29 @@ class HomeProductsRepository {
         ),
         HomeProductItem(
           name: 'English Lyrics',
-          assetName: [
+          assetPathList: [
             StudioImages.productLyricsEnglish,
           ].unmodifiable(),
           type: HomeProductType.lyricFrames,
         ),
         HomeProductItem(
           name: 'Travel Collage',
-          assetName: [StudioImages.productTravelCollage].unmodifiable(),
+          assetPathList: [StudioImages.productTravelCollage].unmodifiable(),
           type: HomeProductType.photoCollage,
         ),
         HomeProductItem(
           name: 'Wall Collage',
-          assetName: [StudioImages.productWallCollage].unmodifiable(),
+          assetPathList: [StudioImages.productWallCollage].unmodifiable(),
           type: HomeProductType.photoCollage,
         ),
         HomeProductItem(
           name: 'Bubble Candle',
-          assetName: [StudioImages.productBubbleCandle].unmodifiable(),
+          assetPathList: [StudioImages.productBubbleCandle].unmodifiable(),
           type: HomeProductType.scentedCandles,
         ),
         HomeProductItem(
           name: 'Coffee Candle',
-          assetName: [
+          assetPathList: [
             StudioImages.productCoffeeCandle1,
             StudioImages.productCoffeeCandle2,
           ].unmodifiable(),
@@ -78,7 +78,7 @@ class HomeProductsRepository {
         ),
         HomeProductItem(
           name: 'Flower Candle',
-          assetName: [
+          assetPathList: [
             StudioImages.productFlowerCandle1,
             StudioImages.productFlowerCandle2,
           ].unmodifiable(),
@@ -86,14 +86,14 @@ class HomeProductsRepository {
         ),
         HomeProductItem(
           name: 'Jar Candle',
-          assetName: [
+          assetPathList: [
             StudioImages.productJarCandle,
           ].unmodifiable(),
           type: HomeProductType.scentedCandles,
         ),
         HomeProductItem(
           name: 'Yarn Candle',
-          assetName: [
+          assetPathList: [
             StudioImages.productYarnCandle,
           ].unmodifiable(),
           type: HomeProductType.scentedCandles,
