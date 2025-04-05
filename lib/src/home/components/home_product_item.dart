@@ -42,6 +42,7 @@ class _HomeProductItemV2State extends State<HomeProductItemV2> {
               child: Column(
                 children: [
                   HomeProductItemImageCarousel(
+                    key: ValueKey(widget.productItem.assetPathList.toString()),
                     assetsName: widget.productItem.assetPathList,
                   ),
                   Container(
