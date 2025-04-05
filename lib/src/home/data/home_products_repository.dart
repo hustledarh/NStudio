@@ -1,18 +1,15 @@
 import 'package:nstudio/src/design/constants/studio_images.dart';
 import 'package:nstudio/src/home/data/models/home_product_item.dart';
+import 'package:nstudio/src/home/data/models/home_product_type.dart';
 
 class HomeProductsRepository {
   const HomeProductsRepository._();
 
-  static const String collageTag = 'Collages';
-  static const String lyricTag = 'Lyrics';
-  static const String candleTag = 'Candles';
-
-  static List<HomeProductItem> fetchProducts({String? tag}) {
-    if (tag == null) {
+  static List<HomeProductItem> fetchProducts({HomeProductType? type}) {
+    if (type == null) {
       return _fetchProducts();
     } else {
-      return _fetchProducts().where((product) => product.tag == tag).toList();
+      return _fetchProducts().where((product) => product.type == type).toList();
     }
   }
 
@@ -21,49 +18,93 @@ class HomeProductsRepository {
       [
         HomeProductItem(
           name: 'Baby Collage',
-          assetName: StudioImages.productBabyCollage,
-          tag: collageTag,
+          assetName: [StudioImages.productBabyCollage].unmodifiable(),
+          type: HomeProductType.photoCollage,
           isFeatured: true,
         ),
         HomeProductItem(
-          name: 'Family Collage 1',
-          assetName: StudioImages.productFamilyCollage1,
+          name: 'Family Collage',
+          assetName: [
+            StudioImages.productFamilyCollage1,
+            StudioImages.productFamilyCollage2,
+            StudioImages.productFamilyCollage3,
+          ].unmodifiable(),
           isFeatured: true,
-          tag: collageTag,
-        ),
-        HomeProductItem(
-          name: 'Family Collage 2',
-          assetName: StudioImages.productFamilyCollage2,
-          tag: collageTag,
-          isFeatured: true,
+          type: HomeProductType.photoCollage,
         ),
         HomeProductItem(
           name: 'Hindi Lyrics',
-          assetName: StudioImages.productLyricsHindi,
-          tag: lyricTag,
+          assetName: [StudioImages.productLyricsHindi].unmodifiable(),
+          type: HomeProductType.lyricFrames,
           isFeatured: true,
         ),
         HomeProductItem(
-          name: 'Hinglish Lyrics 1',
-          assetName: StudioImages.productLyricsHinglish1,
-          tag: lyricTag,
+          name: 'Hinglish Lyrics',
+          assetName: [
+            StudioImages.productLyricsHinglish1,
+            StudioImages.productLyricsHinglish2
+          ].unmodifiable(),
+          type: HomeProductType.lyricFrames,
         ),
         HomeProductItem(
-          name: 'Hinglish Lyrics 2',
-          assetName: StudioImages.productLyricsHinglish2,
-          tag: lyricTag,
+          name: 'English Lyrics',
+          assetName: [
+            StudioImages.productLyricsEnglish,
+          ].unmodifiable(),
+          type: HomeProductType.lyricFrames,
         ),
         HomeProductItem(
           name: 'Travel Collage',
-          assetName: StudioImages.productTravelCollage,
-          tag: collageTag,
+          assetName: [StudioImages.productTravelCollage].unmodifiable(),
+          type: HomeProductType.photoCollage,
         ),
         HomeProductItem(
           name: 'Wall Collage',
-          assetName: StudioImages.productWallCollage,
-          tag: collageTag,
+          assetName: [StudioImages.productWallCollage].unmodifiable(),
+          type: HomeProductType.photoCollage,
+        ),
+        HomeProductItem(
+          name: 'Bubble Candle',
+          assetName: [StudioImages.productBubbleCandle].unmodifiable(),
+          type: HomeProductType.scentedCandles,
+        ),
+        HomeProductItem(
+          name: 'Coffee Candle',
+          assetName: [
+            StudioImages.productCoffeeCandle1,
+            StudioImages.productCoffeeCandle2,
+          ].unmodifiable(),
+          type: HomeProductType.scentedCandles,
+        ),
+        HomeProductItem(
+          name: 'Flower Candle',
+          assetName: [
+            StudioImages.productFlowerCandle1,
+            StudioImages.productFlowerCandle2,
+          ].unmodifiable(),
+          type: HomeProductType.scentedCandles,
+        ),
+        HomeProductItem(
+          name: 'Jar Candle',
+          assetName: [
+            StudioImages.productJarCandle,
+          ].unmodifiable(),
+          type: HomeProductType.scentedCandles,
+        ),
+        HomeProductItem(
+          name: 'Yarn Candle',
+          assetName: [
+            StudioImages.productYarnCandle,
+          ].unmodifiable(),
+          type: HomeProductType.scentedCandles,
         ),
       ],
     );
+  }
+}
+
+extension UnmodifiableIterable<T> on List<T> {
+  List<T> unmodifiable() {
+    return List.unmodifiable(this);
   }
 }

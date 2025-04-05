@@ -34,7 +34,7 @@ class HomeHeroSectionV2 extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
             child: ImageWatermark(
-              assetName: StudioImages.productLyricsHinglish2,
+              assetName: StudioImages.productAllCandles,
               aspectRatio:
                   ResponsiveBreakpoints.of(context).isMobile ? 1.0 : 1.3,
             ),

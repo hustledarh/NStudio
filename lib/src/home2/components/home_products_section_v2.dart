@@ -3,6 +3,7 @@ import 'package:nstudio/src/design/components/studio_tabbar.dart';
 import 'package:nstudio/src/design/constants/studio_colors.dart';
 import 'package:nstudio/src/home/data/home_products_repository.dart';
 import 'package:nstudio/src/home/data/models/home_product_item.dart';
+import 'package:nstudio/src/home/data/models/home_product_type.dart';
 import 'package:nstudio/src/home2/components/home_product_item_v2.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -39,17 +40,17 @@ class _HomeProductsSectionV2State extends State<HomeProductsSectionV2>
               break;
             case 1:
               _productsList = HomeProductsRepository.fetchProducts(
-                tag: HomeProductsRepository.collageTag,
+                type: HomeProductType.photoCollage,
               );
               break;
             case 2:
               _productsList = HomeProductsRepository.fetchProducts(
-                tag: HomeProductsRepository.lyricTag,
+                type: HomeProductType.lyricFrames,
               );
               break;
             case 3:
               _productsList = HomeProductsRepository.fetchProducts(
-                tag: HomeProductsRepository.candleTag,
+                type: HomeProductType.scentedCandles,
               );
               break;
           }
@@ -106,7 +107,7 @@ class _HomeProductsSectionV2State extends State<HomeProductsSectionV2>
           ResponsiveGridView.builder(
             gridDelegate: ResponsiveGridDelegate(
               crossAxisExtent:
-                  ResponsiveBreakpoints.of(context).isDesktop ? 400 : 350,
+                  ResponsiveBreakpoints.of(context).isDesktop ? 390 : 350,
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
               childAspectRatio: 0.8,

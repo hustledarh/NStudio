@@ -1,13 +1,15 @@
+import 'package:nstudio/src/home/data/models/home_product_type.dart';
+
 class HomeProductItem {
   final String name;
-  final String assetName;
-  final String tag;
+  final List<String> assetName;
+  final HomeProductType type;
   final bool isFeatured;
 
   const HomeProductItem({
     required this.name,
     required this.assetName,
-    required this.tag,
+    required this.type,
     this.isFeatured = false,
   });
 }

@@ -29,7 +29,7 @@ class HomeAboutSectionV2 extends StatelessWidget {
                 borderRadius:
                     BorderRadius.circular(StudioSize.imageBorderRadius),
                 child: ImageWatermark(
-                  assetName: StudioImages.productLyricsHinglish2,
+                  assetName: StudioImages.productFrameWithCandle,
                   aspectRatio: 1.3,
                 ),
               ),

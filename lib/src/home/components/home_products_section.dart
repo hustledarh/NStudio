@@ -109,7 +109,7 @@ class _ProductItem extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(StudioSize.imageBorderRadius),
             child: ImageWatermark(
-              assetName: productItem.assetName,
+              assetName: productItem.assetName.first,
             ),
           ),
         ),

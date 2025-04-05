@@ -8,10 +8,12 @@ class ImageWatermark extends StatelessWidget {
   final double? height;
   final double? aspectRatio;
   final double? watermarkSize;
+  final BoxFit fit;
 
   const ImageWatermark({
     this.width = double.infinity,
     this.height = double.infinity,
+    this.fit = BoxFit.cover,
     this.aspectRatio,
     this.watermarkSize,
     required this.assetName,
@@ -27,33 +29,15 @@ class ImageWatermark extends StatelessWidget {
                 aspectRatio: aspectRatio!,
                 child: Image.asset(
                   assetName,
-                  fit: BoxFit.cover,
+                  fit: fit,
                 ),
               )
             : Image.asset(
                 assetName,
-                fit: BoxFit.cover,
+                fit: fit,
                 width: width,
                 height: height,
               ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Container(
-            height: 0,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.transparent,
-                  Colors.black.withOpacity(0.7),
-                ],
-              ),
-            ),
-          ),
-        ),
         Positioned(
           bottom: 8,
           right: 16,
