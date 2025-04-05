@@ -6,6 +6,7 @@ import 'package:nstudio/src/home2/components/home_app_bar_v2.dart';
 import 'package:nstudio/src/home2/components/home_contact_section_v2.dart';
 import 'package:nstudio/src/home2/components/home_hero_section_v2.dart';
 import 'package:nstudio/src/home2/components/home_products_section_v2.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreenV2 extends StatefulWidget {
   const HomeScreenV2({super.key});
@@ -46,6 +47,12 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
     }
   }
 
+  Future<void> _launchURL(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      // Do Something
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,13 +83,14 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
             HomeContactSectionV2(
               key: _contactSectionKey,
               onInstagramClicked: () {
-                // Handle Instagram click
+                _launchURL('https://instagram.com/nandiini_jain');
               },
               onPhoneClicked: () {
-                // Handle Phone click
+                _launchURL('https://api.whatsapp.com/send?phone=8237636728');
               },
               onEmailClicked: () {
-                // Handle Email click
+                _launchURL(
+                    'mailto:studio.n.circle@gmail.com?subject=ORDER&body=I really linked your product and wanted to get something customised for myself');
               },
             ),
           ],
