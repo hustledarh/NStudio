@@ -30,6 +30,7 @@ class HomeAboutSectionV2 extends StatelessWidget {
                     BorderRadius.circular(StudioSize.imageBorderRadius),
                 child: ImageWatermark(
                   assetName: StudioImages.productFrameWithCandle,
+                  fit: BoxFit.fitHeight,
                   aspectRatio: 1.3,
                 ),
               ),
@@ -53,7 +54,7 @@ class HomeAboutSectionV2 extends StatelessWidget {
                     height: 24,
                   ),
                   Text(
-                    "At Studio N, “Handmade with Love” means delivering authentic, sustainable luxury for moments that truly matter.\n\nHand-crafted with care by Maharasthra artisans, our products embody the spirit of the mountains and the art of generations. Every candle and décor piece is thoughtfully made, blending natural materials, premium 100 % natural fragrances, and a touch of tradition.",
+                    "Welcome to our cozy little creative space! We hand-pour 100% natural soy candles and illustrate custom doodle frames that tell your story. Whether you’re lighting up your room or gifting a frame filled with love, every piece is made with care, creativity, and a whole lot of heart.",
                     style: TextStyle(
                       fontSize: 18,
                       color: StudioColors.mutedForeground,

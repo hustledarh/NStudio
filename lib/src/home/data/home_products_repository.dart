@@ -71,8 +71,8 @@ class HomeProductsRepository {
         HomeProductItem(
           name: 'Coffee Candle',
           assetPathList: [
-            StudioImages.productCoffeeCandle1,
             StudioImages.productCoffeeCandle2,
+            StudioImages.productCoffeeCandle1,
           ].unmodifiable(),
           type: HomeProductType.scentedCandles,
         ),
