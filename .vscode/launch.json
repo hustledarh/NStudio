@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "NStudio",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "NStudio (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "NStudio (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Web Server",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "web-server",
+                "--web-port",
+                "3333",
+                "--web-hostname",
+                "0.0.0.0"
+            ]
+        }
+    ]
+}

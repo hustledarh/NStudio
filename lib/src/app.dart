@@ -12,8 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         restorationScopeId: 'app',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
-        darkTheme: ThemeData.dark(),
+        theme: ThemeData(
+          useMaterial3: false,
+          primaryColor: Colors.white,
+        ),
+        darkTheme: ThemeData.dark(
+          useMaterial3: false,
+        ),
         themeMode: ThemeMode.system,
         builder: (context, child) => ResponsiveBreakpoints.builder(
               child: child!,
